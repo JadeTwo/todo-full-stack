@@ -37,6 +37,13 @@ app.delete('/api/todos/:id', async (req, res) => {
     res.json(result);
 })
 
+// PUT updating a todo
+app.put('/api/todos/:id', async (req, res) => {
+    const result = await Todo.findByIdAndUpdate(req.params.id, req.body);
+    console.log(result);
+    res.json(result);
+});
+
 
 app.listen(port, () => {
     console.log('Listening on port: ', port);
