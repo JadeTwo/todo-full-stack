@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react"
+import { useState, useEffect } from "react";
 
 export default function App() {
 
@@ -18,10 +17,11 @@ export default function App() {
 
   return (
     <div>
-      Hello World!
+      <h1>Todos</h1>
       <ul>
         {todos.map((todo) => 
           <li key={todo._id}>
+            <input type="checkbox" checked={todo.completed} />
             {todo.text}
           </li>
         )}
