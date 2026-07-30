@@ -30,6 +30,13 @@ app.post('/api/todos', async (req, res) => {
     res.json(todo);
 })
 
+// DELETE remove a todo
+app.delete('/api/todos/:id', async (req, res) => {
+    const result = await Todo.findByIdAndDelete(req.params.id);
+    console.log(result);
+    res.json(result);
+})
+
 
 app.listen(port, () => {
     console.log('Listening on port: ', port);
