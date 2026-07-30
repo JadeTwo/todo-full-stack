@@ -33,7 +33,7 @@ app.post('/api/todos', async (req, res) => {
     try {
         console.log(req.body);
         const todo = await Todo.create(req.body);
-        res.json(todo);
+        res.status(201).json(todo);
     } catch(e) {
         console.log(e);
         res.status(400).json({ error: e.message })
@@ -45,7 +45,7 @@ app.delete('/api/todos/:id', async (req, res) => {
     try {
         const result = await Todo.findByIdAndDelete(req.params.id);
         console.log(result);
-        res.json(result);
+        res.status(200).json(result);
     } catch(e) {
         console.log(e);
         res.status(400).json({ error: e.message })
@@ -57,7 +57,7 @@ app.put('/api/todos/:id', async (req, res) => {
     try {
         const result = await Todo.findByIdAndUpdate(req.params.id, req.body);
         console.log(result);
-        res.json(result);
+        res.status(200).json(result);
     } catch(e) {
         console.log(e);
         res.status(400).json({ error: e.message })
