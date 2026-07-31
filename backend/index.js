@@ -9,7 +9,8 @@ import todoRoutes from './routes/todo.js'
 
 const app = express();
 
-const port = 3000;
+// use production port OR if in development 3000 by default 
+const port = process.env.PORT || 3000;
 
 // allow requests from frontend
 app.use(cors());
